@@ -4,17 +4,15 @@ import "firebase/compat/firestore";
 import "firebase/compat/storage";
 
 const firebaseConfig = {
-  apiKey: "API_KEY",
-  authDomain: "PROJECT_ID.firebaseapp.com",
-  // The value of `databaseURL` depends on the location of the database
-  databaseURL: "https://DATABASE_NAME.firebaseio.com",
-  projectId: "PROJECT_ID",
-  storageBucket: "PROJECT_ID.appspot.com",
-  messagingSenderId: "SENDER_ID",
-  appId: "APP_ID",
-  // For Firebase JavaScript SDK v7.20.0 and later, `measurementId` is an optional field
-  measurementId: "G-MEASUREMENT_ID",
+  apiKey: "AIzaSyAiDcZy-1jdmbJSDxzBwRijO0m62198_ag",
+  authDomain: "switter-8d673.firebaseapp.com",
+  projectId: "switter-8d673",
+  storageBucket: "switter-8d673.appspot.com",
+  messagingSenderId: "264166122773",
+  appId: "1:264166122773:web:1f4f9ff26f6f7edd20f51c",
 };
 firebase.initializeApp(firebaseConfig);
+
+export const firebaseInstance = firebase;
 
 export const authService = firebase.auth();

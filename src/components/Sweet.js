@@ -15,7 +15,6 @@ const Sweet = ({ sweetObj, isOwner }) => {
   };
   const onSubmit = async (e) => {
     e.preventDefault();
-    console.log(sweetObj, newSweet);
     await dbService.doc(`sweets/${sweetObj.id}`).update({
       text: newSweet,
     });

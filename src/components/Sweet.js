@@ -1,4 +1,4 @@
-import { dbService } from "fbase";
+import { dbService, storageService } from "fbase";
 import React, { useState } from "react";
 
 const Sweet = ({ sweetObj, isOwner }) => {
@@ -8,6 +8,7 @@ const Sweet = ({ sweetObj, isOwner }) => {
     const ok = window.confirm("Are you sure you want to delete?");
     if (ok) {
       await dbService.doc(`sweets/${sweetObj.id}`).delete();
+      await storageService.refFromURL(sweetObj.attachmentUrl).delete();
     }
   };
   const toggleEditing = () => {
@@ -42,6 +43,9 @@ const Sweet = ({ sweetObj, isOwner }) => {
       ) : (
         <>
           <h4>{sweetObj.text}</h4>
+          {sweetObj.attachmentUrl && (
+            <img src={sweetObj.attachmentUrl} width="150" height="150" />
+          )}
           {isOwner && (
             <>
               <button onClick={deleteOnClick}>Delete Sweet</button>

@@ -1,6 +1,12 @@
 import AuthFrom from "components/AuthForm";
 import { authService, firebaseInstance } from "fbase";
 import React from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faTwitter,
+  faGoogle,
+  faGithub,
+} from "@fortawesome/free-brands-svg-icons";
 
 const Auth = () => {
   const onSocailClick = async (e) => {
@@ -17,14 +23,20 @@ const Auth = () => {
   };
 
   return (
-    <div>
+    <div className="authContainer">
+      <FontAwesomeIcon
+        icon={faTwitter}
+        color={"#04AAFF"}
+        size="3x"
+        style={{ marginBottom: 30 }}
+      />
       <AuthFrom />
-      <div>
-        <button onClick={onSocailClick} name="google">
-          구글로 계속하기
+      <div className="authBtns">
+        <button onClick={onSocailClick} name="google" className="authBtn">
+          Continue with Google <FontAwesomeIcon icon={faGoogle} />
         </button>
-        <button onClick={onSocailClick} name="github">
-          깃허브로 계속하기
+        <button onClick={onSocailClick} name="github" className="authBtn">
+          Continue with Github <FontAwesomeIcon icon={faGithub} />
         </button>
       </div>
     </div>

@@ -1,5 +1,7 @@
 import { dbService, storageService } from "fbase";
 import React, { useState } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
 const Sweet = ({ sweetObj, isOwner }) => {
   const [editing, setEditing] = useState(false); //수정모드인지 아닌지 true false로 알수있음
@@ -25,32 +27,38 @@ const Sweet = ({ sweetObj, isOwner }) => {
     setNewSweet(e.target.value);
   };
   return (
-    <div>
+    <div className="nweet">
       {editing ? (
         <>
-          <form onSubmit={onSubmit}>
+          <form onSubmit={onSubmit} className="container nweetEdit">
             <input
               type="text"
               placeholder="Edit you sweet"
               value={newSweet}
               required
+              autoFocus
               onChange={onChange}
+              className="formInput"
             />
-            <input type="submit" value="Update Sweet" />
+            <input type="submit" value="Update Nweet" className="formBtn" />{" "}
           </form>
-          <button onClick={toggleEditing}>Cancel</button>
+          <span onClick={toggleEditing} className="formBtn cancelBtn">
+            Cancel
+          </span>
         </>
       ) : (
         <>
           <h4>{sweetObj.text}</h4>
-          {sweetObj.attachmentUrl && (
-            <img src={sweetObj.attachmentUrl} width="150" height="150" />
-          )}
+          {sweetObj.attachmentUrl && <img src={sweetObj.attachmentUrl} />}
           {isOwner && (
-            <>
-              <button onClick={deleteOnClick}>Delete Sweet</button>
-              <button onClick={toggleEditing}>Edit Sweet</button>
-            </>
+            <div className="nweet__actions">
+              <span onClick={deleteOnClick}>
+                <FontAwesomeIcon icon={faTrash} />
+              </span>
+              <span onClick={toggleEditing}>
+                <FontAwesomeIcon icon={faPencilAlt} />
+              </span>
+            </div>
           )}
         </>
       )}

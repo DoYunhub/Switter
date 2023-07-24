@@ -33,10 +33,10 @@ const Auth = () => {
       <AuthFrom />
       <div className="authBtns">
         <button onClick={onSocailClick} name="google" className="authBtn">
-          Continue with Google <FontAwesomeIcon icon={faGoogle} />
+          구글로 로그인 하기 <FontAwesomeIcon icon={faGoogle} />
         </button>
         <button onClick={onSocailClick} name="github" className="authBtn">
-          Continue with Github <FontAwesomeIcon icon={faGithub} />
+          깃허브로 로그인 하기 <FontAwesomeIcon icon={faGithub} />
         </button>
       </div>
     </div>

@@ -60,13 +60,13 @@ const SweetFactory = ({ userObj }) => {
           value={sweet}
           onChange={onChange}
           type="text"
-          placeholder="What's on your mind?"
+          placeholder="너의 생각을 적어봐!"
           maxLength={120}
         />
         <input type="submit" value="&rarr;" className="factoryInput__arrow" />
       </div>
       <label htmlFor="attach-file" className="factoryInput__label">
-        <span>Add photos</span>
+        <span>사진 추가</span>
         <FontAwesomeIcon icon={faPlus} />
       </label>
       <input
@@ -87,7 +87,7 @@ const SweetFactory = ({ userObj }) => {
             }}
           />
           <div className="factoryForm__clear" onClick={onClearAttachment}>
-            <span>Remove</span>
+            <span>수정</span>
             <FontAwesomeIcon icon={faTimes} />
           </div>
         </div>

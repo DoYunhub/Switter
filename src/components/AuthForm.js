@@ -61,12 +61,12 @@ const AuthFrom = () => {
         <input
           type="submit"
           className="authInput authSubmit"
-          value={newAccount ? "Create Account" : "Sign In"}
+          value={newAccount ? "회원가입하기" : "로그인"}
         />
         {error && <span className="authError">{error}</span>}
       </form>
       <span onClick={toggleAccount} className="authSwitch">
-        {newAccount ? "Sign in" : "create Account"}
+        {newAccount ? "로그인" : "회원가입하기"}
       </span>
     </>
   );
